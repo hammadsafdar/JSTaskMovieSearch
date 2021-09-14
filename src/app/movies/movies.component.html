@@ -1,0 +1,35 @@
+
+<h1>Type in the Name of a movie and hit Enter.</h1>
+<input type="text" class="inputsearch" placeholder="Search..." (keyup.enter)="onSearchEntered($event)">
+
+<ul *ngIf="foundMovies; else NoMovieFound">
+  <li *ngFor="let mov of foundMovies">
+    <h2 *ngIf="mov.Title.length <= 17; else elseBlock" class="title">{{mov.Title}}</h2>
+    <ng-template #elseBlock><h2>{{mov.Title.substring(0,15)+"..."}}</h2></ng-template>
+
+    <p class="image" *ngIf="mov.Poster.length >= 10; else NoImage">
+      <img src="{{mov.Poster}}" width="200" height="250">
+      <a class="url" target="_blank" href="{{mov.Poster}}">Click Here To See Full Poster</a>
+    </p>
+    <ng-template #NoImage><h3>No Image Found</h3></ng-template>
+
+    <p class="year">Year : {{mov.Year}}</p>
+    <input type="hidden" value="{{mov.imdbID}}" />
+  </li>
+</ul>
+<ng-template #NoMovieFound><h2>No Movies Found ...</h2></ng-template>
+
+
+<!-- <ul *ngIf="movies; else elseBlockNoData">
+  <li *ngFor="let movie of movies">
+    <h2 *ngIf="movie.Title.length <= 17; else elseBlock2" class="title">{{movie.Title}}</h2>
+    <ng-template #elseBlock2><h2>{{movie.Title.substring(0,15)+"..."}}</h2></ng-template>
+
+    <p class="image"><img src="{{movie.Poster}}" width="200" height="250"></p>
+    <a class="url" target="_blank" href="{{movie.Poster}}">Click Here To See Full Image</a>
+    <p class="year">Year : {{movie.Year}}</p>
+    <input type="hidden" value="{{movie.imdbID}}" />
+  </li>
+</ul>
+<ng-template #elseBlockNoData><h2>No Data Found...</h2></ng-template> -->
+

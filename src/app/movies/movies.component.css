@@ -1,0 +1,32 @@
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+
+}
+ul > li{
+  margin: 5px;
+  padding: 10px;
+  border: 2px solid #1976d2;
+  border-radius: 3px;
+  width: 199px;
+}
+
+h2 {
+  margin: 8px 0;
+  border-bottom: 1px solid black;
+}
+
+
+.inputsearch{
+  width: 300px;
+  height: 25px;
+}
+
+.inputsearch:focus {
+  
+  border: 2px solid #1976d2;
+}
